@@ -3,16 +3,37 @@
   "version": "0.0.0",
   "description": "Update a shared state by asynchronous actions which execute over a system which responds when the state isn't up to date and expose a refresh operation which returns the value which represents that updated state for enabling the action to proceed.",
   "main": "dist/index.js",
+  "module": "src/state-updater.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint --ext .js src",
+    "lint:fix": "eslint --fix --ext !spec.js,.js src",
+    "test": "jest --config jest.config.js --collectCoverage",
+    "test:watch": "jest --watch --config jest.config.js",
+    "build": "webpack"
   },
   "keywords": [
     "async-actions",
-    "state"
+    "state",
+    "updater"
   ],
   "author": "Cycloid",
   "license": "MIT",
   "devDependencies": {
-    "wepack": "0.0.1"
+    "babel-core": "^6.26.0",
+    "babel-jest": "^22.4.3",
+    "babel-loader": "^7.1.4",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.6.1",
+    "eslint": "^4.19.1",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.11.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-promise": "^3.7.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "eslint-plugin-unicorn": "^4.0.3",
+    "faker": "^4.1.0",
+    "jest": "^22.4.3",
+    "webpack": "^4.5.0",
+    "webpack-cli": "^2.0.14"
   }
 }

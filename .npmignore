@@ -1,0 +1,6 @@
+.babelrc
+.coverage
+.eslintrc.js
+jest.config.js
+webpack.config.js
+*.spec.js
