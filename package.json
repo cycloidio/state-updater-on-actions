@@ -1,6 +1,6 @@
 {
   "name": "state-updater-on-actions",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Update a shared state by asynchronous actions which execute over a system which responds when the state isn't up to date and expose a refresh operation which returns the value which represents that updated state for enabling the action to proceed.",
   "main": "dist/index.js",
   "module": "src/state-updater.js",
