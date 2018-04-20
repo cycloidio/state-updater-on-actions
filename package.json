@@ -4,6 +4,10 @@
   "description": "Update a shared state by asynchronous actions which execute over a system which responds when the state isn't up to date and expose a refresh operation which returns the value which represents that updated state for enabling the action to proceed.",
   "main": "dist/index.js",
   "module": "src/state-updater.js",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/cycloidio/state-update-on-actions"
+  },
   "scripts": {
     "lint": "eslint --ext .js src",
     "lint:fix": "eslint --fix --ext !spec.js,.js src",
@@ -35,5 +39,8 @@
     "jest": "^22.4.3",
     "webpack": "^4.5.0",
     "webpack-cli": "^2.0.14"
+  },
+  "engines": {
+    "node": ">= 9.0.0"
   }
 }
