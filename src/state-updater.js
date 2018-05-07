@@ -1,35 +1,61 @@
 /**
- * The state-updater-on-actions instance.
- * @typedef {Object} StateUpdaterOnActions
- * @method call - Calls an action with the passed parameters.
- *    @param {Action} action - The action to call.
- *    @param {*} params - The parameters to pass to the action when it will be
- *        called.
- *    @return {Promise} - The promise that the action returns, or if it returns
- *        a promise with the value returned by the 'updateState', it will call
- *        the 'updateAction' and if it returns a rejected promise, then it will
- *        be returned such rejected promise.
- * @method callCtx - Calls an action using the specified context
- *    (e.g obj.action()) and the passed parameters.
- *    @param {Action} action - The action to call.
- *    @param {*} ctx - The context to use for calling the action (i.e. `this`
- *        pointer).
- *    @param {*} params - The parameters to pass to the action when it will be
- *        called.
- *    @return {Promise} - The promise that the action returns, or if it returns
- *        a promise with the value returned by the 'updateState', it will call
- *        the 'updateAction' and if it returns a rejected promise, then it will
- *        be returned such rejected promise.
- * @method updateState - returns the value which the actions must resolve their
- *    returned promises when they require an state update.
- *    @return {*} - The value DOES NOT matter as it's used internally to identify
+ * The state-updater-on-actions interface.
+ * <br><br>
+ * <b>NOTE this isn't a real class</b>, it's an interface because of JSDoc
+ * limitations.
+ * [Related StackOverflow thread]{@link https://stackoverflow.com/questions/23095975/jsdoc-object-methods-with-method-or-property}
+ *
+ * @name StateUpdaterOnActions
+ * @class
+ */
+
+/**
+ * Calls an action with the passed parameters.
+ *
+ * @method
+ * @name StateUpdaterOnActions#call
+ * @param {Action} action - The action to call.
+ * @param {*} params - The parameters to pass to the action when it will be called.
+ * @return {Promise} - The promise that the action returns, or if it returns a
+ *    promise with the value returned by the <code>updateState</code>, it will
+ *    call the <code>updateAction</code> function passed to the constructor by
+ *    parameter and if it returns a rejected promise, then it will be returned
+ *    such rejected promise.
+ */
+
+/**
+ * Calls an action using the specified context (e.g obj.action()) and the
+ * passed parameters.
+ *
+ * @method
+ * @name StateUpdaterOnActions#callCtx
+ * @param {Action} action - The action to call.
+ * @param {*} ctx - The context to use for calling the action (i.e. `this`
+ *    pointer).
+ * @param {*} params - The parameters to pass to the action when it will be called.
+ * @return {Promise} - The promise that the action returns, or if it returns a
+ *    promise with the value returned by the <code>updateState</code> method, it
+ *    will call the <code>updateAction</code> function passed to the constructor
+ *    by parameter and if it returns a rejected promise then it will be returned
+ *    such rejected promise.
+ */
+
+/**
+ * Returns the value which the actions must resolve their returned promises when
+ * they require an state update.
+ *
+ * @method
+ * @name StateUpdaterOnActions#updateState
+ * @return {*} - The value DOES NOT matter as it's used internally to identify
  *        that the update state action must be called.
  */
 
 /**
- * Action is a function which returns a promise; in order to notify that an
- * update state is required it MUST return a resolved promise which the value
- * returned by the StateUpdaterOnActions~updateState method.
+ * Action is a function which returns a promise; in order to notify that the
+ * state must be updated, it MUST return a resolved promise which the value
+ * returned by the
+ * [<code>updateState</code> method of the <code>StateUpdaterOnActions</code> instance which is used to call the action]{@link StateUpdaterOnActions#updateState}.
+ *
  * @async
  * @typedef {Function} Action
  */
@@ -40,13 +66,13 @@
  * object, or a function which use `this` pointer) and requires the passed
  * parameters.
  *
- * @param {Function} updateAction - The function which update the shared state
- *    require by the actions which will be executed by the returned
- *    state-updater-on-actions instance. The function MUST return a promise.
- * @param {*} params - The parameters to pass to the 'updateAction' each time
- *    that will be executed.
+ * @param {Action} updateAction - The function which update the shared state
+ *    require by the actions which will be executed by the returned instance.
+ *    The function MUST return a promise.
+ * @param {*} params - The parameters to pass to the <code>updateAction</code>
+ *    each time that it will be executed.
  * @return {StateUpdaterOnActions} - The instance which will call the
- *    'updateAction' with the passed 'params' when required.
+ *    <code>updateAction</code> with the passed parameters when required.
  */
 export function createStateUpdater (updateAction, ...params) {
   if (typeof updateAction !== 'function') {
@@ -59,17 +85,18 @@ export function createStateUpdater (updateAction, ...params) {
 /**
  * Create an instance of state updater that uses an action function, which
  * requires to be executed in any context (e.g. a method of an object, or a
- * function which use `this` pointer) and requires the passed parameters.
+ * function which use <code>this</code> pointer) and requires the passed
+ * parameters.
  *
- * @param {Function} updateAction - The function which update the shared state
- *    require by the actions which will be executed by the returned
- *    state-updater-on-actions instance. The function MUST return a promise.
- * @param {*} ctx - The context to use for calling the action (i.e. `this`
- *        pointer).
- * @param {*} params - The parameters to pass to the 'updateAction' each time
- *    that will be executed.
+ * @param {Action} updateAction - The function which update the shared state
+ *    require by the actions which will be executed by the returned instance.
+ *    The function MUST return a promise.
+ * @param {*} ctx - The context to use for calling the action (i.e.
+ *    <code>this</code> pointer).
+ * @param {*} params - The parameters to pass to the <code>updateAction</code>
+ *    each time that will be executed.
  * @return {StateUpdaterOnActions} - The instance which will call the
- *    'updateAction' with the passed 'params' when required.
+ *    <code>updateAction</code> with the passed parameters when required.
  */
 export function createStateUpdaterCtx (updateAction, ctx, ...params) {
   if (typeof updateAction !== 'function') {
