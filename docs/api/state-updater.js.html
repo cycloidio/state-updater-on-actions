@@ -1,7 +1,35 @@
-/**
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: state-updater.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: state-updater.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
  * The state-updater-on-actions interface.
- * <br><br>
- * <b>NOTE this isn't a real class</b>, it's an interface because of JSDoc
+ * &lt;br>&lt;br>
+ * &lt;b>NOTE this isn't a real class&lt;/b>, it's an interface because of JSDoc
  * limitations.
  * [Related StackOverflow thread]{@link https://stackoverflow.com/questions/23095975/jsdoc-object-methods-with-method-or-property}
  *
@@ -17,8 +45,8 @@
  * @param {Action} action - The action to call.
  * @param {*} params - The parameters to pass to the action when it will be called.
  * @return {Promise} - The promise that the action returns, or if it returns a
- *    promise with the value returned by the <code>updateState</code>, it will
- *    call the <code>updateAction</code> function passed to the constructor by
+ *    promise with the value returned by the &lt;code>updateState&lt;/code>, it will
+ *    call the &lt;code>updateAction&lt;/code> function passed to the constructor by
  *    parameter and if it returns a rejected promise, then it will be returned
  *    such rejected promise.
  */
@@ -34,8 +62,8 @@
  *    pointer).
  * @param {*} params - The parameters to pass to the action when it will be called.
  * @return {Promise} - The promise that the action returns, or if it returns a
- *    promise with the value returned by the <code>updateState</code> method, it
- *    will call the <code>updateAction</code> function passed to the constructor
+ *    promise with the value returned by the &lt;code>updateState&lt;/code> method, it
+ *    will call the &lt;code>updateAction&lt;/code> function passed to the constructor
  *    by parameter and if it returns a rejected promise then it will be returned
  *    such rejected promise.
  */
@@ -54,7 +82,7 @@
  * Action is a function which returns a promise; in order to notify that the
  * state must be updated, it MUST return a resolved promise which the value
  * returned by the
- * [<code>updateState</code> method of the <code>StateUpdaterOnActions</code> instance which is used to call the action]{@link StateUpdaterOnActions#updateState}.
+ * [&lt;code>updateState&lt;/code> method of the &lt;code>StateUpdaterOnActions&lt;/code> instance which is used to call the action]{@link StateUpdaterOnActions#updateState}.
  *
  * @async
  * @typedef {Function} Action
@@ -69,10 +97,10 @@
  * @param {Action} updateAction - The function which update the shared state
  *    require by the actions which will be executed by the returned instance.
  *    The function MUST return a promise.
- * @param {*} params - The parameters to pass to the <code>updateAction</code>
+ * @param {*} params - The parameters to pass to the &lt;code>updateAction&lt;/code>
  *    each time that it will be executed.
  * @return {StateUpdaterOnActions} - The instance which will call the
- *    <code>updateAction</code> with the passed parameters when required.
+ *    &lt;code>updateAction&lt;/code> with the passed parameters when required.
  */
 export function createStateUpdater (updateAction, ...params) {
   if (typeof updateAction !== 'function') {
@@ -85,18 +113,18 @@ export function createStateUpdater (updateAction, ...params) {
 /**
  * Create an instance of state updater that uses an action function, which
  * requires to be executed in any context (e.g. a method of an object, or a
- * function which use <code>this</code> pointer) and requires the passed
+ * function which use &lt;code>this&lt;/code> pointer) and requires the passed
  * parameters.
  *
  * @param {Action} updateAction - The function which update the shared state
  *    require by the actions which will be executed by the returned instance.
  *    The function MUST return a promise.
  * @param {*} ctx - The context to use for calling the action (i.e.
- *    <code>this</code> pointer).
- * @param {*} params - The parameters to pass to the <code>updateAction</code>
+ *    &lt;code>this&lt;/code> pointer).
+ * @param {*} params - The parameters to pass to the &lt;code>updateAction&lt;/code>
  *    each time that will be executed.
  * @return {StateUpdaterOnActions} - The instance which will call the
- *    <code>updateAction</code> with the passed parameters when required.
+ *    &lt;code>updateAction&lt;/code> with the passed parameters when required.
  */
 export function createStateUpdaterCtx (updateAction, ctx, ...params) {
   if (typeof updateAction !== 'function') {
@@ -181,3 +209,26 @@ function create (updateAction, ctx, ...params) {
     }
   }
 }
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="StateUpdaterOnActions.html">StateUpdaterOnActions</a></li></ul><h3>Global</h3><ul><li><a href="global.html#createStateUpdater">createStateUpdater</a></li><li><a href="global.html#createStateUpdaterCtx">createStateUpdaterCtx</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Mon May 07 2018 16:34:40 GMT+0000 (UTC)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
