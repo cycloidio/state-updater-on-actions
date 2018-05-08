@@ -76,6 +76,16 @@ Currently, everything must be run manually, we have planned to add a [CI configu
 
 The module is developed with ES2016 version, all the source is _src_ including the _tests_, which are the files with the extension _*.spec.js_; however for not excluding possible consumers that requires to use an JS ES5 version, the sources are transpiled, with BabelJS, and made them available in the _dist_ directory; that's what the _NPM script build_ targets does.
 
+### Steps to do/check before merging a PR
+
+Meanwhile there is not automation for some tasks, the following steps must be done/checked before merging a PR to master and just after it is merged.
+
+1. Verify that the following _NPM scrips_ execute without any error: `lint` and `test`.
+2. Update the ES5 version of the module with the _NPM script_ `build`.
+3. If using _NPM_, make sure that the _yarn.lock_ file is up to date; but if using _YARN_ then, make sure that the _package-lock.json_.
+4. Regenerate the API docs if they have been updated and published them in the GH pages branch.
+5. Once is merged into _master_, bump the _package_ version and publish it in _NPM_.
+
 ## License
 
 The MIT License (MIT)
