@@ -54,7 +54,7 @@ As commented in the [rationale](#rationale), the _actions_ must be asynchronous;
 
 On the other hand, the _updater_ must be determined previously to be used, it's likely the most of the cases and we haven't thought in any use case which may need to change the _updater_ once an instance returned by one of the constructor functions of this module; however, it doesn't mean that there is one, so if you have one which require it, you may want to open an issue to expose it and we'll decide if we should create a new version of the module which allow to do so or not.
 
-The public source code (i.e. the public API or exported functions, if you want to called it in such way) is documented using the [JSDoc syntax](http://usejsdoc.org), so you can see the [API documentation in the Github pages of this repository under the path _docs/api_](http://cycloidio.github.io/state-update-on-actions/docs/api).
+The public source code (i.e. the public API or exported functions, if you want to called it in such way) is documented using the [JSDoc syntax](http://usejsdoc.org), so you can see the [API documentation in the Github pages of this repository under the path _docs/api_](http://cycloidio.github.io/state-updater-on-actions/docs/api).
 
 ### Notes about the implementation
 
@@ -72,7 +72,7 @@ Although _BabelJS_ is used, you'll see that in the _packgage.json_ file, it's in
 
 The _pacakge.json_ also contains the _scripts_ which are needed when developing this module, they are self explanatory and some of them must be used in a branch which is sent through a PR, as they are required to run without any error in order to be accept and merged. Because you should familiar with _NPM_, and they are pretty clear, we don't list them in this document, basically, go an check _package.json_ file _scripts_ property to find them out.
 
-Currently, everything must be run manually, we have planned to add a [CI configuration at some point to run the _linter_ and _tests_ on new PRs](https://github.com/cycloidio/state-update-on-actions/issues/3) and [run the _build_ and _NPM publish_ once a PR is merged into the _master branch_](https://github.com/cycloidio/state-update-on-actions/issues/5) and [update the Github pages when the master branch gets updated](https://github.com/cycloidio/state-update-on-actions/issues/6), but for now isn't done.
+Currently, everything must be run manually, we have planned to add a [CI configuration at some point to run the _linter_ and _tests_ on new PRs](https://github.com/cycloidio/state-updater-on-actions/issues/3) and [run the _build_ and _NPM publish_ once a PR is merged into the _master branch_](https://github.com/cycloidio/state-updater-on-actions/issues/5) and [update the Github pages when the master branch gets updated](https://github.com/cycloidio/state-updater-on-actions/issues/6), but for now isn't done.
 
 The module is developed with ES2016 version, all the source is _src_ including the _tests_, which are the files with the extension _*.spec.js_; however for not excluding possible consumers that requires to use an JS ES5 version, the sources are transpiled, with BabelJS, and made them available in the _dist_ directory; that's what the _NPM script build_ targets does.
 
