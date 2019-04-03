@@ -4,7 +4,7 @@ Small JS module for calling asynchronous actions which require an "updated state
 
 ## Install
 
-You can install it using _NPM or _Yarn_.
+You can install it using _NPM_.
 
 ```
 npm install state-updater-on-actions
@@ -82,7 +82,7 @@ Meanwhile there is not automation for some tasks, the following steps must be do
 
 1. Verify that the following _NPM scrips_ execute without any error: `lint` and `test`.
 2. Update the ES5 version of the module with the _NPM script_ `build`.
-3. If using _NPM_, make sure that the _yarn.lock_ file is up to date; but if using _YARN_ then, make sure that the _package-lock.json_.
+3. Make sure that the _package-lock.json_.
 4. Regenerate the API docs if they have been updated and published them in the GH pages branch.
 5. Once is merged into _master_, bump the _package_ version and publish it in _NPM_.
 
