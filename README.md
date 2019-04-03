@@ -22,14 +22,6 @@ Using the ES2016 version is recommended when you are using this module on an app
 
 On the other hand, if you need the ES5 version, you can directly require the module, or even you need it so, you could require the script indicated in the _main_ property of the _pacakge.json_ file.
 
-## Is it production ready?
-
-It should be; we developed the module with tests and currently it has 100% coverage, in case that's a metric that matters to you.
-
-We started to use it in production in the front-end of our product, however it hasn't passed too much time since we developed and started to use it, so, for being cautious, we decided to keep the version of the module on `0.0.X`, which means that's in development. In reality, we don't expect any change in the public API, and if we don't realize that we have to do any and we don't find any issue with this module in our production environment for a several weeks, then we'll bump its version to `1.0.0`.
-
-So far, we can say, **use it under your risk**.
-
 ## Rationale
 
 Small JS module which allows to call asynchronous actions which are required to have an "updated state", which is shared by all them, and when the state isn't up to date, they get, some how, a result which notifies them to update the state previous to be executed again, in order to be executed.
