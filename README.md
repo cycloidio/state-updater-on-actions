@@ -4,7 +4,7 @@ Small JS module for calling asynchronous actions which require an "updated state
 
 ## Install
 
-You can install it using _NPM or _Yarn_.
+You can install it using _NPM_.
 
 ```
 npm install state-updater-on-actions
@@ -21,14 +21,6 @@ If your system supports ES2016 modules but it isn't automatically checking the _
 Using the ES2016 version is recommended when you are using this module on an application that you have a bundler which fully care of the ES2016 transformations, so the transformation of this one can be optimized together with the transformations that your own sources, avoiding to repeat general code that all the ES5 transpiled files require.
 
 On the other hand, if you need the ES5 version, you can directly require the module, or even you need it so, you could require the script indicated in the _main_ property of the _pacakge.json_ file.
-
-## Is it production ready?
-
-It should be; we developed the module with tests and currently it has 100% coverage, in case that's a metric that matters to you.
-
-We started to use it in production in the front-end of our product, however it hasn't passed too much time since we developed and started to use it, so, for being cautious, we decided to keep the version of the module on `0.0.X`, which means that's in development. In reality, we don't expect any change in the public API, and if we don't realize that we have to do any and we don't find any issue with this module in our production environment for a several weeks, then we'll bump its version to `1.0.0`.
-
-So far, we can say, **use it under your risk**.
 
 ## Rationale
 
@@ -82,7 +74,7 @@ Meanwhile there is not automation for some tasks, the following steps must be do
 
 1. Verify that the following _NPM scrips_ execute without any error: `lint` and `test`.
 2. Update the ES5 version of the module with the _NPM script_ `build`.
-3. If using _NPM_, make sure that the _yarn.lock_ file is up to date; but if using _YARN_ then, make sure that the _package-lock.json_.
+3. Make sure that the _package-lock.json_.
 4. Regenerate the API docs if they have been updated and published them in the GH pages branch.
 5. Once is merged into _master_, bump the _package_ version and publish it in _NPM_.
 
